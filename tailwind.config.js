@@ -8,6 +8,11 @@ module.exports = {
       fontFamily :{
         lunasima :['Lunasima' ,"sans-serif"],
       },
+      colors:{
+        'custom-color': 'rgb(190, 230, 180)',
+        'custom-color-dark': '#67a75b',
+        'custom-color-light': '#e9f3e5',
+      },
     },
   },
   plugins: [],
