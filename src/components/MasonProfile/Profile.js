@@ -9,10 +9,10 @@ const Profile = (props) =>{
     const propsData = location.state;
     const[showForm,setShowForm] = useState(false);
     const showFormHandler = () =>{
-        setShowForm(!showForm);
+        setShowForm((prevState)=> !prevState);
     }
     const hideFormHandler =() =>{
-        setShowForm(false);
+        setShowForm((prevState)=> !prevState);
     }
     // console.log(propsData);
     const [pointsData ,setPointsData] = useState([]);
@@ -21,9 +21,9 @@ const Profile = (props) =>{
     const id = propsData.id;
     const data = {name: name,phoneNo:phone,id:id};
     const [totalPoints,setTotalPoints] = useState(0);
-    const fetchPointsDetails = useCallback(async() =>{
+    const fetchPointsDetails = async() =>{
       
-        const response = await fetch(`https://masonlist-6cc7d-default-rtdb.firebaseio.com/masonDetail/${propsData.id}/pointsData.json`);
+        const response = await fetch(`https://masonlist-6cc7d-default-rtdb.firebaseio.com/masonDetail/${id}/pointsData.json`);
         try{
             if(!response.ok){
                 throw new Error("Somehting Went Wrong!");
@@ -50,10 +50,10 @@ const Profile = (props) =>{
         }catch(error){
             console.log(error.message);
         }
-    },[propsData.id]);
+    };
     useEffect(()=>{
         fetchPointsDetails();
-    },[fetchPointsDetails,showForm]);
+    },);
 
    
     return (
@@ -100,7 +100,7 @@ const Profile = (props) =>{
                     <div className={styles.stats}>
                       
                         <div className={styles.col}>
-                            <p className={styles.stat}>457</p>
+                            <p className={styles.stat}>{totalPoints}</p>
                             <p className={styles.label}>Total Points </p>
                         </div>
                     </div>
@@ -114,31 +114,31 @@ const Profile = (props) =>{
             <div>
                 {showForm && <NewEntryForm data = {data} onClose = {hideFormHandler} ></NewEntryForm>}
             </div>
-            <div className="text-white text-lg flex justify-center flex-col items-center m-16">
+            <div className="text-white text-lg flex  flex-col  my-16 mx-4 sm:mx-28">
                  <h2 className="text-xl mb-6">Total Points : {totalPoints} </h2>
-                    <table border="2" className="table-auto w-[50%] bg-[#7199A0]">
-                        <thead>
-                            <tr className="bg-slate-400">
-                            <th className="border-4 border-slate-600 p-1">Id</th>
-                            <th className="border-4 border-slate-600 px-1">Date</th>
-                            <th className="border-4 border-slate-600 ">Cement</th>
-                            <th className="border-4 border-slate-600 ">Steel</th>
-                            <th className="border-4 border-slate-600 ">Points</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {pointsData.map((data) =>
-                            <tr key={data.id}>
-                                <td className="border-4 border-slate-700 ...">{data.id}</td>
-                                <td className="border-4 border-slate-700 p-2">{data.date}</td>
-                                <td className="border-4 border-slate-700 ...">{data.cement}</td>
-                                <td className="border-4 border-slate-700 ...">{data.steel}</td>
-                                <td className="border-4 border-slate-700 ...">{data.points}</td>
-                            </tr>
-                            )}
-                           
-                        </tbody>
-                    </table>
+                 <table className="table-auto w-full bg-[#7199A0] border-collapse ">
+  <thead>
+    <tr className="bg-slate-400">
+      <th className="px-4 py-2 border border-slate-600">Id</th>
+      <th className="px-4 py-2 border border-slate-600">Date</th>
+      <th className="px-4 py-2 border border-slate-600">Cement</th>
+      <th className="px-4 py-2 border border-slate-600">Steel</th>
+      <th className="px-4 py-2 border border-slate-600">Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    {pointsData.map((data) => (
+      <tr key={data.id}>
+        <td className="px-4 py-2 border border-slate-700">{data.id}</td>
+        <td className="px-4 py-2 border border-slate-700">{data.date}</td>
+        <td className="px-4 py-2 border border-slate-700">{data.cement}</td>
+        <td className="px-4 py-2 border border-slate-700">{data.steel}</td>
+        <td className="px-4 py-2 border border-slate-700">{data.points}</td>
+      </tr>
+    ))}
+  </tbody>
+                </table>
+
             </div>
         </React.Fragment>
     //    <div>

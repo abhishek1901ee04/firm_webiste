@@ -5,19 +5,19 @@ const Homepage = () =>{
     return(
         <div>
             <Header/>
-            <div className="bg-slate-600  h-screen relative">
+            <div className="bg-slate-600  h-screen">
                 <div className="w-[45%] pt-20 pl-14">
                     <span className="font-lunasima text-white font-extrabold text-3xl"> BUILD OR REBUILD</span>
                     <h1 className="text-yellow-500 text-7xl font-serif font-extrabold mt-6">WE ARE YOUR SOLUTION </h1>
                     <p className="text-xl text-white font-bold font-lunasima mt-6 pb-16"> "Your trusted source for cement and steel rods. Serving the community for 20 years. Your one-stop shop for quality construction materials."</p>
-                    <div className="flex  justify-evenly">
+                    <div className="flex flex-col sm:flex-row  sm:static absolute right-5 bottom-4 justify-evenly">
                         <button className="bg-yellow-500 p-5 rounded-xl text-white text-xl font-semibold font-lunasima cursor-pointer"> OUR SERVICES </button>
                         <span className="bg-transparent p-5 rounded-xl text-white text-xl font-semibold font-lunasima cursor-pointer"> Contanct Us</span>
                     </div>
                 </div>    
             </div>
-            <div className="flex justify-around ">
-                <div className="flex justify-between">
+            <div className="flex  flex-col sm:flex-row  justify-center sm:justify-around ">
+                <div className="flex justify-center sm:justify-between">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 425 425"  className="h-24">
                         <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="-1643.122" y1="1228.084" x2="364.885" y2="136.082">
                             <stop offset="0" />
@@ -67,7 +67,7 @@ const Homepage = () =>{
                         <span>Phone : 9893640608 </span>
                     </div>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-center sm:justify-between">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" className="h-24">
                         <g id="office">
                             <path class="cls-1" d="M8.5 3h-3a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM8 6H6V4h2zM13.5 3h-3a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM13 6h-2V4h2zM8.5 8h-3a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM8 11H6V9h2zM13.5 8h-3a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm-.5 3h-2V9h2zM8.5 13h-3a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM8 16H6v-2h2zM13.5 13h-3a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm-.5 3h-2v-2h2z" fill="#FFEB3B"/>
@@ -80,7 +80,7 @@ const Homepage = () =>{
                         <span > Trivedha traders Orchha Road Prithvipur, Dist: niwari (M.P.) </span>
                     </div>
                 </div>
-                <div className="bg-yellow-500 text-lg text-white font-bold font-lunasima flex w-[35%] ">
+                <div className="bg-yellow-500 text-lg text-white font-bold font-lunasima flex m-3 sm:m-0 sm:w-[35%] ">
                     <div className="border-r-4 border-white p-2 flex flex-col w-[50%]">
                         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className="h-16">
                             <path d="M115 11.513H13a1.75 1.75 0 0 0-1.75 1.75v67.948a1.75 1.75 0 0 0 1.75 1.75h36.677a15.309 15.309 0 0 0 9.867 9.392l-4.991 3.636a1.75 1.75 0 0 0-.719 1.414v17.334a1.75 1.75 0 0 0 1.75 1.75h16.833a1.75 1.75 0 0 0 1.75-1.75V97.4a1.75 1.75 0 0 0-.719-1.414l-4.991-3.636a15.309 15.309 0 0 0 9.867-9.392H115a1.75 1.75 0 0 0 1.75-1.75V13.263a1.75 1.75 0 0 0-1.75-1.75zm-51 51a15.266 15.266 0 0 0-14.338 10.1H29.2a9.025 9.025 0 0 0-7.079-7.079V28.941a9.025 9.025 0 0 0 7.079-7.079h69.6a9.025 9.025 0 0 0 7.079 7.079v36.592a9.025 9.025 0 0 0-7.079 7.079H78.338A15.266 15.266 0 0 0 64 62.514zm6.667 50.474H57.333V98.293L64 93.436l6.667 4.857zM64 89.521a11.753 11.753 0 1 1 11.753-11.754A11.767 11.767 0 0 1 64 89.521zm49.25-10.06h-34.1a14.532 14.532 0 0 0 .006-3.349h21.215a1.75 1.75 0 0 0 1.75-1.75 5.507 5.507 0 0 1 5.5-5.5 1.75 1.75 0 0 0 1.75-1.75v-39.75a1.75 1.75 0 0 0-1.75-1.75 5.507 5.507 0 0 1-5.5-5.5 1.75 1.75 0 0 0-1.75-1.75H27.625a1.75 1.75 0 0 0-1.75 1.75 5.507 5.507 0 0 1-5.5 5.5 1.75 1.75 0 0 0-1.75 1.75v39.75a1.75 1.75 0 0 0 1.75 1.75 5.507 5.507 0 0 1 5.5 5.5 1.75 1.75 0 0 0 1.75 1.75H48.84a14.532 14.532 0 0 0 .006 3.349H14.75V15.013h98.5z" />
@@ -106,18 +106,18 @@ const Homepage = () =>{
                     </div>
                 </div>
             </div>
-            <div className="flex justify-evenly my-6 bg-slate-100">
-                <div className="relative w-80 h-96  bg-cover bg-center" 
+            <div className="flex flex-col sm:flex-row justify-center sm:justify-evenly items-center my-6 bg-slate-100">
+                <div className="relative w-80 h-96  bg-cover bg-center my-4 sm:my-0 " 
                      style={{ backgroundImage: "url(https://media.istockphoto.com/id/182066599/photo/indian-engineer-architect-on-construction-site.jpg?s=612x612&w=0&k=20&c=zaaGavlZ7bgbZP32fRzNc5dQPdp7qzPF4vIo-zaP6eo=)" }}>
                     <div className="bg-yellow-500 text-lg text-white absolute -bottom-8 right-0  w-[40%]">
                         <span>The Best Housing Material Supplier in 2022</span>
                     </div>
                 </div>
                 <div className="w-[50%]">
-                    <h1 className="text-2xl font-lunasima text-yellow-500 font-bold m-3 "> Thinking Building Or Renovation?</h1>
+                    <h1 className="text-2xl font-lunasima text-yellow-500 font-bold m-8 sm:m-3 "> Thinking Building Or Renovation?</h1>
                     <span className="text-3xl font-serif"> We Trivedha traders are the Best Solution For that </span>
-                    <div className="flex justify-around w-[100%] items-center">
-                        <div className="flex flex-col w-[50%]">
+                    <div className="flex flex-col sm:flex-row justify-around w-[100%] items-center">
+                        <div className="flex flex-col sm:w-[50%]">
                             <div className="flex flex-col w-[100%] items-center">
                                 <div className="flex ">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8">
@@ -138,7 +138,7 @@ const Homepage = () =>{
                                 <p> Trusted products, reliable always.</p>
                             </div>
                         </div>
-                        <div className="flex flex-col m-3 w-[40%]  text-lg text-center">
+                        <div className="flex flex-col m-3 sm:w-[40%]  text-lg text-center">
                             <p className="border-b-4 border-white pb-4 mt-2"> 
                             Trusted shop providing top-quality construction materials, cement, and steel rods for lasting projects.
                             </p>

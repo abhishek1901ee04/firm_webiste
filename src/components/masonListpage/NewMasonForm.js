@@ -15,7 +15,7 @@ const NewMasonForm = (props) =>{
     const [email,setEmail] = useState("");
     const [uploaded,setUploaded] = useState(false);
  
-    const sumbitForm = (event) =>{
+    const submitForm = (event) =>{
        event.preventDefault();
        const data= {
         firstName  : firstName,
@@ -92,45 +92,133 @@ const NewMasonForm = (props) =>{
         handleImageUpload();
     }
     return (
-        <form onSubmit = {sumbitForm} className=" flex flex-col items-center">
-            <div className="flex flex-col bg-slate-500 items-center justify-between" >
-
-                <label htmlFor="fname">First Name</label>
-                <input id = "fname" type ="text" className="w-[60%]" onChange={firstNameHandler} />
-                <label htmlFor="mname">Middle Name</label>
-                <input id ="mname" type = "text" className="w-[60%]" onChange={middleNameHandler} />
-                <label htmlFor="lname">last Name</label>
-                <input id = "lname" type = "text" className="w-[60%]" onChange={lastNameHandler}/>
-                <label htmlFor="vname">village Name</label>
-                <input id = "vname" type = "text" className="w-[60%]" onChange={villageNameHandler}/>
-                <label htmlFor="occ">Occupation</label>
-                <div>
-                    <select value={selectedValue} onChange={handleChange}>
-                        <option value="">Select an option</option>
-                        <option value="option1">Karigar </option>
-                        <option value="option2">ThekeDar</option>
-                        <option value="option3">tractor owner</option>
-                    </select>
-                </div>
-                <label htmlFor="mNum">Mobile Number </label>
-                <input id = "mNum" type = "text" className="w-[60%]" onChange={phoneNoHandler}/>
-                <label htmlFor="ANo">Aadhar Card No</label>
-                <input id="ANo" type ="text" className="w-[60%]" onChange={aadharNoHandler}/>
-                <label htmlFor="email">Email</label>
-                <input id="email" type ="text" className="w-[60%]" onChange={emailHandler}/>
-                <div className="flex flex-col items-center m-5">
-                    <label htmlFor="imageInput">Select an image:</label>
-                    <input
-                        type="file"
-                        id="imageInput"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                    />
-                    <button onClick={uploadImage} className="bg-gray-200 p-4 font-bold mt-2 rounded-2xl"  type = "button">{uploaded ? "Uploaded" :"Upload Image" }</button>
-                </div>
-            </div>
-          <button type = "submit" className="bg-sky-600 rounded-2xl p-4 cursor-pointer m-4 text-white font-bold"> Submit</button>
-        </form>
-    )
+      <form onSubmit={submitForm} className="flex flex-col items-center space-y-8 my-5">
+      <div className="bg-slate-500 p-6 rounded-lg shadow-md w-96 space-y-4">
+        <div className="text-white font-bold">
+          <label htmlFor="fname">First Name</label>
+          <input
+            id="fname"
+            type="text"
+            className="w-full p-2 rounded-md border focus:outline-none focus:border-sky-600"
+            onChange={firstNameHandler}
+            required
+          />
+        </div>
+    
+        <div className="text-white font-bold">
+          <label htmlFor="mname">Middle Name</label>
+          <input
+            id="mname"
+            type="text"
+            className="w-full p-2 rounded-md border focus:outline-none focus:border-sky-600"
+            onChange={middleNameHandler}
+            required
+          />
+        </div>
+    
+        <div className="text-white font-bold">
+          <label htmlFor="lname">Last Name</label>
+          <input
+            id="lname"
+            type="text"
+            className="w-full p-2 rounded-md border focus:outline-none focus:border-sky-600"
+            onChange={lastNameHandler}
+            required
+          />
+        </div>
+    
+        <div className="text-white font-bold">
+          <label htmlFor="vname">Village Name</label>
+          <input
+            id="vname"
+            type="text"
+            className="w-full p-2 rounded-md border focus:outline-none focus:border-sky-600"
+            onChange={villageNameHandler}
+            required
+          />
+        </div>
+    
+        <div className="text-white font-bold">
+          <label htmlFor="occ">Occupation</label>
+          <div className="w-full p-2 rounded-md border focus:outline-none focus:border-sky-600">
+            <select
+              value={selectedValue}
+              onChange={handleChange}
+              className="w-full bg-white text-gray-900 rounded-md"
+              required
+            >
+              <option value="">Select an option</option>
+              <option value="option1">Karigar</option>
+              <option value="option2">ThekeDar</option>
+              <option value="option3">Tractor Owner</option>
+            </select>
+          </div>
+        </div>
+    
+        <div className="text-white font-bold">
+          <label htmlFor="mNum">Mobile Number</label>
+          <input
+            id="mNum"
+            type="text"
+            className="w-full p-2 rounded-md border focus:outline-none focus:border-sky-600"
+            onChange={phoneNoHandler}
+            required
+          />
+        </div>
+    
+        <div className="text-white font-bold">
+          <label htmlFor="ANo">Aadhar Card No</label>
+          <input
+            id="ANo"
+            type="text"
+            className="w-full p-2 rounded-md border focus:outline-none focus:border-sky-600"
+            onChange={aadharNoHandler}
+            required
+          />
+        </div>
+    
+        <div className="text-white font-bold">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="text"
+            className="w-full p-2 rounded-md border focus:outline-none focus:border-sky-600"
+            onChange={emailHandler}
+            required
+          />
+        </div>
+    
+        <div className="flex flex-col items-center">
+          <label htmlFor="imageInput" className="text-white font-bold">
+            Select an image:
+          </label>
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="mb-2"
+            required
+          />
+          <button
+            onClick={uploadImage}
+            className={`p-4 rounded-2xl ${
+              uploaded ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700'
+            } font-bold hover:bg-opacity-80 transition-all duration-300 ease-in-out`}
+            type="button"
+          >
+            {uploaded ? 'Uploaded' : 'Upload Image'}
+          </button>
+        </div>
+      </div>
+      <button
+        type="submit"
+        className="bg-sky-600 rounded-2xl p-4 mt-4 text-white font-bold shadow-md hover:bg-sky-700 cursor-pointer transition-all duration-300 ease-in-out"
+      >
+        Submit
+      </button>
+    </form>
+    
+          )
 }
 export default NewMasonForm;

@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 const NewEntryForm = (props) =>{
-    const [inputValue,setInputValue] = useState(0);
+    
     // const handleChange = (event) => {
     //     setInputValue(Number(event.target.value)); // Convert the input value back to a number
     //   };
@@ -37,35 +37,50 @@ const NewEntryForm = (props) =>{
     const steelRef = useRef();
  
     return (
-        <form onSubmit = {submitFormHandler} className=" flex justify-center ">
-            <div className="flex flex-col justify-center items-center border-4 border-sky-900 w-[50%] bg-[#]">
-                <div className="flex flex-col w-[50%]">
-                    <label htmlFor="name" className="text-lg text-white font-lunasima font-bold"> Name</label>
-                    <input type ="text" id="name" value={props.data.name} className="text-center " ref={nameRef}/>
-                </div>
-                <div className="flex flex-col justify-around w-[50%]">
-                    <label htmlFor="phoneno"> Phone No</label>
-                    <input type ="text" id="phoneno" value={props.data.phoneNo} className="text-center" ref={phoneRef}/>
-                </div>
-                <div className="flex flex-col justify-around w-[50%]">
-                    <label htmlFor="date"> Date</label>
-                    <input type ="date" id="date" className="text-center" ref={dateRef}/>
-                </div>
-                <div className="flex flex-col justify-around w-[50%]">
-                    <label htmlFor="cement"> Cement Quantity</label>
-                    <input type ="number" id="cement" className="text-center" ref={cementRef}/>
-                </div>
-                <div className="flex flex-col justify-around w-[50%]">
-                    <label htmlFor="steel"> steel Quantity</label>
-                    <input type ="" id="steel" className="text-center" ref={steelRef}/>
-                </div>
-                <div className="flex flex-col justify-around w-[50%]">
-                    <label htmlFor="points"> Points</label>
-                    <input type ="number" id="points"  className="text-center" disabled />
-                </div>
-                <button type="submit" className="bg-sky-500 rounded-xl text-white text-lg font-bold p-4 mt-5"> Submit </button>
-            </div>
-        </form>
+        <form onSubmit={submitFormHandler} className="flex justify-center">
+  <div className="border-4 border-sky-900 w-[50%] bg-[#] p-8 rounded-lg">
+    <div className="flex flex-col mb-4">
+      <label htmlFor="name" className="text-lg text-white font-lunasima font-bold">
+        Name
+      </label>
+      <input type="text" id="name" value={props.data.name} className="text-center p-2 rounded-md" ref={nameRef} />
+    </div>
+    <div className="flex flex-col mb-4">
+      <label htmlFor="phoneno" className="text-lg text-white font-lunasima font-bold">
+        Phone No
+      </label>
+      <input type="text" id="phoneno" value={props.data.phoneNo} className="text-center p-2 rounded-md" ref={phoneRef} />
+    </div>
+    <div className="flex flex-col mb-4">
+      <label htmlFor="date" className="text-lg text-white font-lunasima font-bold">
+        Date
+      </label>
+      <input type="date" id="date" className="text-center p-2 rounded-md" ref={dateRef} required />
+    </div>
+    <div className="flex flex-col mb-4">
+      <label htmlFor="cement" className="text-lg text-white font-lunasima font-bold">
+        Cement Quantity
+      </label>
+      <input type="number" id="cement" className="text-center p-2 rounded-md" ref={cementRef} required />
+    </div>
+    <div className="flex flex-col mb-4">
+      <label htmlFor="steel" className="text-lg text-white font-lunasima font-bold">
+        Steel Quantity
+      </label>
+      <input type="number" id="steel" className="text-center p-2 rounded-md" ref={steelRef} required />
+    </div>
+    <div className="flex flex-col mb-4">
+      <label htmlFor="points" className="text-lg text-white font-lunasima font-bold">
+        Points
+      </label>
+      <input type="number" id="points" className="text-center p-2 rounded-md" disabled />
+    </div>
+    <button type="submit" className="bg-sky-500 rounded-xl text-white text-lg font-bold p-4 mt-5">
+      Submit
+    </button>
+  </div>
+</form>
+
     )
 };
 export default NewEntryForm;
