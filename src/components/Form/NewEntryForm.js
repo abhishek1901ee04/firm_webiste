@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
-
+import sendSMS from "../smsService";
 const NewEntryForm = (props) =>{
     
     // const handleChange = (event) => {
     //     setInputValue(Number(event.target.value)); // Convert the input value back to a number
     //   };
     const submitFormHandler =()=>{
-        props.onClose();
+        
         const data = {
             name: nameRef.current.value,
             phone : phoneRef.current.value,
@@ -17,6 +17,19 @@ const NewEntryForm = (props) =>{
         }
         
         addPointsData(data);
+        const message = `  श्री ${data.name}, आपके प्रोफाइल बिंदुओं को सफलतापूर्वक अपडेट कर दिया गया है। आपके खाते में ${data.points} नए पॉइंट्स जोड़े गए हैं। हम आपको त्रिवेदी ट्रेडर्स वेबसाइट के सदस्य बनने के लिए धन्यवादी हैं।
+
+        आपको और जानकारी प्राप्त करने के लिए कृपया हमारी वेबसाइट पर जाएं या हमें +91 9893640608 पर कॉल करें।
+        
+        हमें आशा है कि आप हमारे साथ एक सुखद अनुभव प्राप्त करेंगे।`;
+        const reqphoneNo = `+91${data.phone}`;
+        try {
+          sendSMS(reqphoneNo,message);
+        } catch (error) {
+          console.error(error.message);
+        }
+        
+        props.onClose();
     };
     const addPointsData = async(pointsData) =>{
         const response = await fetch(`https://masonlist-6cc7d-default-rtdb.firebaseio.com/masonDetail/${props.data.id}/pointsData.json`,{

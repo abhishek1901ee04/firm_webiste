@@ -53,7 +53,7 @@ const Profile = (props) =>{
     };
     useEffect(()=>{
         fetchPointsDetails();
-    },);
+    },[showForm]);
 
    
     return (

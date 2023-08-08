@@ -2,7 +2,7 @@ import React, { useState,useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Dropdown = (props) => {
-    console.log(props);
+    // console.log(props);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 

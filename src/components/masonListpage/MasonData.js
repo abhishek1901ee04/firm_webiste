@@ -9,8 +9,8 @@ const MasonData = (props) =>{
     const part2 =aadharNo.slice(4, 8);
     const part3 =aadharNo.slice(8, 12);
     // const email = "abhitrivediairhkj1@gmail.com"
-    console.log(props.data);
-    console.log(imageUrl);
+    // console.log(props.data);
+    // console.log(imageUrl);
     const [formIsShown ,setFormIsShown] = useState(false);
     const showFormHandler = () =>{
         setFormIsShown(true);
