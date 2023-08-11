@@ -4,33 +4,34 @@ import { Link } from "react-router-dom";
 const Header = () =>{
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const [showDropMenu,setShowDropMenu] = useState(false);
+    const menuHandler = () =>{
+        setShowDropMenu((prevState)=>{
+            return !prevState;
+        })
+       }
+
     useEffect(() => {
         const handleResize = () => {
-          // Get the current window width
-          
-
           const windowWidth = window.innerWidth;
-    
-          // Check if the window width is less than or equal to the small (sm) breakpoint (640px)
           const isSmScreen = windowWidth <= 640;
-    
-          // Update the state variable based on the screen width
           setIsSmallScreen(isSmScreen);
+      
+          // Log the updated value whenever the window is resized
+          console.log(isSmScreen);
         };
-    
+      
         // Call handleResize on initial mount and whenever the window is resized
         handleResize();
         window.addEventListener("resize", handleResize);
-    
+      
         // Clean up the event listener on component unmount
-        console.log(isSmallScreen);
         return () => {
           window.removeEventListener("resize", handleResize);
         };
-      }, [isSmallScreen]);
-    const menuHandler = ()=>{
-        setShowDropMenu(!showDropMenu);
-    }
+      }, []); // Removed the dependency array since isSmallScreen is now logged within the handleResize function
+      
+
+  
    const menu =  <div className="mx-28">
                 <ul className="flex flex-col sm:flex-row  mt-3 text-white text-lg font-lunasima ">
                     <li className="mx-4 bg-yellow-500 p-4 rounded-md cursor-pointer ">
@@ -57,15 +58,15 @@ const Header = () =>{
                             </li>
                         </ul>
                     </div>;
-    const dropDowmMenu = <div>
-                            <button className="bg-yellow-400 p-3 rounded-full flex justify-center mt-5" onClick={menuHandler}>
-                                <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                    <path clip-rule="evenodd" d="M3 5C3 4.44772 3.44772 4 4 4H16C16.5523 4 17 4.44772 17 5C17 5.55228 16.5523 6 16 6H4C3.44772 6 3 5.55228 3 5Z" fill="#4A5568" fill-rule="evenodd"/>
-                                    <path clip-rule="evenodd" d="M3 10C3 9.44772 3.44772 9 4 9H16C16.5523 9 17 9.44772 17 10C17 10.5523 16.5523 11 16 11H4C3.44772 11 3 10.5523 3 10Z" fill="#4A5568" fill-rule="evenodd"/>
-                                    <path clip-rule="evenodd" d="M3 15C3 14.4477 3.44772 14 4 14H16C16.5523 14 17 14.4477 17 15C17 15.5523 16.5523 16 16 16H4C3.44772 16 3 15.5523 3 15Z" fill="#4A5568" fill-rule="evenodd"/>
-                                </svg>
-                            </button>
-                        </div>;
+    // const dropDowmMenu = <div>
+    //                         <button className="bg-yellow-400 p-3 rounded-full flex justify-center mt-5" onClick={menuHandler}>
+    //                             <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+    //                                 <path clip-rule="evenodd" d="M3 5C3 4.44772 3.44772 4 4 4H16C16.5523 4 17 4.44772 17 5C17 5.55228 16.5523 6 16 6H4C3.44772 6 3 5.55228 3 5Z" fill="#4A5568" fill-rule="evenodd"/>
+    //                                 <path clip-rule="evenodd" d="M3 10C3 9.44772 3.44772 9 4 9H16C16.5523 9 17 9.44772 17 10C17 10.5523 16.5523 11 16 11H4C3.44772 11 3 10.5523 3 10Z" fill="#4A5568" fill-rule="evenodd"/>
+    //                                 <path clip-rule="evenodd" d="M3 15C3 14.4477 3.44772 14 4 14H16C16.5523 14 17 14.4477 17 15C17 15.5523 16.5523 16 16 16H4C3.44772 16 3 15.5523 3 15Z" fill="#4A5568" fill-rule="evenodd"/>
+    //                             </svg>
+    //                         </button>
+    //                     </div>;
     return (
         <div className="bg-yellow-600  flex justify-between">
             <div className="flex"> 
@@ -85,8 +86,22 @@ const Header = () =>{
                     
                 </div>
             </div>
-            {isSmallScreen && dropDowmMenu}
-            {( isSmallScreen && showDropMenu) && dropMenu}
+             {
+                isSmallScreen &&
+                <div>
+                    <button className="bg-yellow-400 p-3 rounded-full flex justify-center mt-5" onTouchStart={menuHandler}>
+                    <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path clipRule="evenodd" d="M3 5C3 4.44772 3.44772 4 4 4H16C16.5523 4 17 4.44772 17 5C17 5.55228 16.5523 6 16 6H4C3.44772 6 3 5.55228 3 5Z" fill="#4A5568" fillRule="evenodd" />
+                    <path clipRule="evenodd" d="M3 10C3 9.44772 3.44772 9 4 9H16C16.5523 9 17 9.44772 17 10C17 10.5523 16.5523 11 16 11H4C3.44772 11 3 10.5523 3 10Z" fill="#4A5568" fillRule="evenodd" />
+                    <path clipRule="evenodd" d="M3 15C3 14.4477 3.44772 14 4 14H16C16.5523 14 17 14.4477 17 15C17 15.5523 16.5523 16 16 16H4C3.44772 16 3 15.5523 3 15Z" fill="#4A5568" fillRule="evenodd" />
+                    </svg>
+                </button>
+                    {showDropMenu && (
+                        dropMenu
+                    )}
+        
+                </div>
+            }
             {!isSmallScreen && menu}
             
         </div>

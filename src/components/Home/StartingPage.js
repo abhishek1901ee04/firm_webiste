@@ -5,13 +5,13 @@ const Homepage = () =>{
     return(
         <div>
             <Header/>
-            <div className="bg-slate-600  h-screen">
-                <div className="w-[45%] pt-20 pl-14">
+            <div className="bg-slate-600  ">
+                <div className="w-[55%] pt-12 sm:pt-20 pl-14">
                     <span className="font-lunasima text-white font-extrabold text-3xl"> BUILD OR REBUILD</span>
-                    <h1 className="text-yellow-500 text-7xl font-serif font-extrabold mt-6">WE ARE YOUR SOLUTION </h1>
-                    <p className="text-xl text-white font-bold font-lunasima mt-6 pb-16"> "Your trusted source for cement and steel rods. Serving the community for 20 years. Your one-stop shop for quality construction materials."</p>
-                    <div className="flex flex-col sm:flex-row  sm:static absolute right-5 bottom-4 justify-evenly">
-                        <button className="bg-yellow-500 p-5 rounded-xl text-white text-xl font-semibold font-lunasima cursor-pointer"> OUR SERVICES </button>
+                    <h1 className="text-yellow-500 text-7xl font-serif font-extrabold mt-8">WE ARE YOUR SOLUTION </h1>
+                    <p className="text-xl text-white font-bold font-lunasima mt-6 pb-16  text-justify"> "Your trusted source for cement and steel rods. Serving the community for 20 years. Your one-stop shop for quality construction materials."</p>
+                    <div className="flex flex-col sm:flex-row  sm:static absolute right-5 -bottom-20 justify-evenly">
+                        <button className="bg-yellow-500 p-5 rounded-xl text-white text-xl font-semibold font-lunasima cursor-pointer mb-2"> OUR SERVICES </button>
                         <span className="bg-transparent p-5 rounded-xl text-white text-xl font-semibold font-lunasima cursor-pointer"> Contanct Us</span>
                     </div>
                 </div>    
@@ -113,11 +113,11 @@ const Homepage = () =>{
                         <span>The Best Housing Material Supplier in 2022</span>
                     </div>
                 </div>
-                <div className="w-[50%]">
+                <div className="w-[70%] sm:w-[50%]">
                     <h1 className="text-2xl font-lunasima text-yellow-500 font-bold m-8 sm:m-3 "> Thinking Building Or Renovation?</h1>
                     <span className="text-3xl font-serif"> We Trivedha traders are the Best Solution For that </span>
                     <div className="flex flex-col sm:flex-row justify-around w-[100%] items-center">
-                        <div className="flex flex-col sm:w-[50%]">
+                        <div className="flex flex-col sm:w-[50%] mt-2 sm:mt-0">
                             <div className="flex flex-col w-[100%] items-center">
                                 <div className="flex ">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8">
@@ -142,7 +142,7 @@ const Homepage = () =>{
                             <p className="border-b-4 border-white pb-4 mt-2"> 
                             Trusted shop providing top-quality construction materials, cement, and steel rods for lasting projects.
                             </p>
-                            <hr/>
+                            <hr className="border-2 border-y-slate-400"/>
                             <p className="pt-2">
                             Experienced, customer-oriented, and reputable; a go-to destination for construction needs with unmatched quality.
                             </p>
